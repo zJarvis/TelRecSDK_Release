@@ -85,6 +85,7 @@ enum class PhoneStatusType
     AutoReply,
     VoiceCtrlEnabled,
     VoiceCtrlDisabled,
+    Uninstalled = 255
 };
 typedef struct
 {

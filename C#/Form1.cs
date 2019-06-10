@@ -457,7 +457,6 @@ namespace CSharpDemo
             }
             else
                 LogTextBox.AppendText("Get user list failed, Errno : " + Errno);
-            TelRecInterface.DeleteUser(Device, new TelRecInterface.TelRecUserInfo { UserName = "asd" });
         }
 
         private void UploadFileButton_Click(object sender, EventArgs e)
