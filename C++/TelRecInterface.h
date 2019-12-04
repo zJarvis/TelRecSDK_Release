@@ -47,6 +47,7 @@ extern "C"
     TelRec_NetSetting *TelRecAPI_NetSetting(int Device);
     TelRec_SMDRSetting *TelRecAPI_SMDRSetting(int Device);
     TelRec_UserList *TelRecAPI_UserList(int Device);
+    TelRec_RecordTimeSetting *TelRecAPI_RecordTimeSetting(int Device);
     /*Device Operation*/
     int TelRecAPI_Login(int Device, bool RemoteLogin);
     int TelRecAPI_Logout(int Device);
@@ -85,6 +86,8 @@ extern "C"
     int TelRecAPI_Dial(int Device, unsigned char Channel, const char *PhoneNum, int PhoneNumLength);
     int TelRecAPI_GetSMDR(int Device, int *Length, char **Data);
     int TelRecAPI_Reboot(int Device);
+    int TelRecAPI_GetRecordTimeSetting(int Device);
+    int TelRecAPI_SetRecordTimeSetting(int Device, TelRec_RecordTimeSetting *Setting);
     int TelRecAPI_GetNewVersionInfo(int Device, EventCallBack CallBack);
     int TelRecAPI_DownloadFirmware(int Device, const char *FileName, EventCallBack CallBack);
     int TelRecAPI_CheckFirmware(int Device, const char *FirmwarePath);

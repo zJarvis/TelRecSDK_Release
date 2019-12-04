@@ -267,6 +267,24 @@ typedef struct
     TelRec_UserInfo *Users;
 }TelRec_UserList;
 
+/*Record Time Setting*/
+typedef struct
+{
+    unsigned char Enable;
+    unsigned char StartHour;
+    unsigned char StartMinute;
+    unsigned char EndHour;
+    unsigned char EndMinute;
+}TelRec_RecordTimeQuantum;
+typedef struct
+{
+    unsigned char Enable;
+    unsigned char Mode;
+    unsigned char Reserved1[2];
+    TelRec_RecordTimeQuantum Quantum[7][3];
+    unsigned char Reserved2[11];
+}TelRec_RecordTimeSetting;
+
 /*Record Index*/
 #define RecordType_InComing     0
 #define RecordType_Outgoing     1
@@ -275,7 +293,8 @@ typedef struct
 #define RecordType_VoiceCtrl    4
 #define RecordType_Keep         5
 #define RecordType_AutoReply    6
-#define RecordType_Invalid      7
+#define RecordType_Timing       7
+#define RecordType_Invalid      8
 typedef struct
 {
     unsigned char Year;

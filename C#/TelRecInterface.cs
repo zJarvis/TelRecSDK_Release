@@ -1059,16 +1059,22 @@ namespace CSharpDemo
                 return TelRecErrno.ParameterInvalid;
             return (TelRecErrno)TelRecAPI_Logout(Device);
         }
+        private static EventCallBack HeartbeatCallBack = null;
         public static TelRecErrno CreateHeartbeatThread(int Device, DeviceEventCallBack CallBack)
         {
             int Errno;
             if (Device == 0)
                 return TelRecErrno.ParameterInvalid;
-            Errno = TelRecAPI_CS_CreateHeartbeatThread(Device, (int Event, int EventDevice, IntPtr Data, int Length) =>
+            if(HeartbeatCallBack == null)
             {
-                CallBack((TelRecEventType)Event, EventDevice, (int)Data, Length);
-                return 0;
-            });
+                HeartbeatCallBack = new EventCallBack(
+                (int Event, int EventDevice, IntPtr Data, int Length) =>
+                {
+                    CallBack((TelRecEventType)Event, EventDevice, (int)Data, Length);
+                    return 0;
+                });
+            }
+            Errno = TelRecAPI_CS_CreateHeartbeatThread(Device, HeartbeatCallBack);
             return (TelRecErrno)Errno;
         }
         public static TelRecErrno GetStorageStatus(int Device)
