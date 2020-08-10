@@ -160,8 +160,8 @@ typedef struct
 #define RecordCondition_Keep    4
 #define AutoReplyRingCountMinimum   1
 #define AutoReplyRingCountMaximum   10
-#define LeaveWordMaxTimeMinimum     10
-#define LeaveWordMaxTimeMaximum     120
+#define LeaveWordMaxTimeMinimum     0
+#define LeaveWordMaxTimeMaximum     200
 typedef struct
 {
     unsigned char Enable;

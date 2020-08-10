@@ -23,6 +23,7 @@ extern "C"
     const char *TelRecAPI_DeviceModel(int Device);
     const char *TelRecAPI_FirmwareVersion(int Device);
     int TelRecAPI_DeviceChannels(int Device);
+    bool TelRecAPI_IsSupportPlayBack(int Device);
     /*Permission*/
     bool TelRecAPI_Permission_ManageUsers(int Device);
     bool TelRecAPI_Permission_ChangeSetting(int Device);
