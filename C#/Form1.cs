@@ -229,6 +229,8 @@ namespace CSharpDemo
                     {
                         TelRecInterface.TelRecChannelStatus Status = TelRecInterface.ChannelStatus(Device, Channel);
                         Console.WriteLine("Channel : " + Channel + ", Status : " + Status.PhoneStatus);
+                        if(Status.PhoneNum.Length > 0)
+                            Console.WriteLine("Channel : " + Channel + ", PhoneNumber : " + Status.PhoneNum);
                         //...
                         break;
                     }
