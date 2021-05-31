@@ -85,6 +85,8 @@ enum class PhoneStatusType
     AutoReply,
     VoiceCtrlEnabled,
     VoiceCtrlDisabled,
+    NotSupport,
+    Max,
     Uninstalled = 255
 };
 typedef struct
@@ -284,6 +286,16 @@ typedef struct
     TelRec_RecordTimeQuantum Quantum[7][3];
     unsigned char Reserved2[11];
 }TelRec_RecordTimeSetting;
+
+/*Scheduled Restart Setting*/
+typedef struct
+{
+    unsigned char Enable;
+    unsigned char RestarHour;
+    unsigned char RestarMinute;
+    unsigned char Week[7];
+    unsigned char Reserved[6];
+}TelRec_ScheduledRestartSetting;
 
 /*Record Index*/
 #define RecordType_InComing     0

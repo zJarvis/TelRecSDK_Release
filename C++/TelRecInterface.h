@@ -35,6 +35,7 @@ extern "C"
     ConnectStatusType TelRecAPI_ConnectStatus(int Device);
     TelRec_StorageStatus *TelRecAPI_StorageStatus(int Device);
     TelRec_NetStatus *TelRecAPI_NetStatus(int Device);
+    int TelRecAPI_LastPhoneStatus(int Device, int Channel);
     TelRec_ChannelStatus *TelRecAPI_ChannelStatus(int Device, int Channel);
     TelRec_OnlineUserList *TelRecAPI_OnlineUserList(int Device);
     bool TelRecAPI_CloudServerHasConnected(int Device);
@@ -49,6 +50,7 @@ extern "C"
     TelRec_SMDRSetting *TelRecAPI_SMDRSetting(int Device);
     TelRec_UserList *TelRecAPI_UserList(int Device);
     TelRec_RecordTimeSetting *TelRecAPI_RecordTimeSetting(int Device);
+    TelRec_ScheduledRestartSetting *TelRecAPI_ScheduledRestartSetting(int Device);
     /*Device Operation*/
     int TelRecAPI_Login(int Device, bool RemoteLogin);
     int TelRecAPI_Logout(int Device);
@@ -89,6 +91,10 @@ extern "C"
     int TelRecAPI_Reboot(int Device);
     int TelRecAPI_GetRecordTimeSetting(int Device);
     int TelRecAPI_SetRecordTimeSetting(int Device, TelRec_RecordTimeSetting *Setting);
+    int TelRecAPI_GetScheduledRestartSetting(int Device);
+    int TelRecAPI_SetScheduledRestartSetting(int Device, TelRec_ScheduledRestartSetting *Setting);
+    int TelRecAPI_PlayAudioFile(int Device, int Channel, const char *FileName);
+
     int TelRecAPI_GetNewVersionInfo(int Device, EventCallBack CallBack);
     int TelRecAPI_DownloadFirmware(int Device, const char *FileName, EventCallBack CallBack);
     int TelRecAPI_CheckFirmware(int Device, const char *FirmwarePath);
